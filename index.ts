@@ -30,6 +30,11 @@ function handleRequest(request) {
       },
     });
   }
+
+  // Redirect to `/html`
+  if (pathname === '/') {
+    return Response.redirect('https://saud.deno.dev/html', 302);
+  }
 }
 
 addEventListener("fetch", (event) => {
