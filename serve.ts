@@ -1,4 +1,4 @@
-function serve(routes: object, defaultRoute = '/') {
+export function serve(routes: object, defaultRoute = '/') {
   addEventListener('fetch', (event: FetchEvent) => {
     const { route } = new URL(event.request);
     const page = routes[route];
@@ -11,7 +11,7 @@ function serve(routes: object, defaultRoute = '/') {
   });
 };
 
-function htmlResponse(content: string) {
+export function htmlResponse(content: string) {
   return new Response(content, {
     headers: {
     // The "text/html" part implies to the client that the content is HTML
@@ -22,7 +22,7 @@ function htmlResponse(content: string) {
   });
 }
 
-function jsonResponse(body: object) {
+export function jsonResponse(body: object) {
   // Use stringify function to convert javascript object to JSON string.
   const json = JSON.stringify(body);
 
