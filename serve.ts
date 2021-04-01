@@ -1,7 +1,7 @@
-export function serve(routes: object, defaultRoute = '/') {
+export function serve(routes: { [key: string]: Function; }, defaultRoute = '/') {
   addEventListener('fetch', (event: FetchEvent) => {
-    const { route } = new URL(event.request);
-    const page = routes[route];
+    const { pathname } = new URL(event.request.url);
+    const page = routes[pathname];
 
     if (typeof page === 'function') {
       event.respondWith(page());
