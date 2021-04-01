@@ -1,4 +1,4 @@
-import { serve, htmlResponse, jsonResponse } from './serve';
+import { serve, htmlResponse, jsonResponse } from './serve.ts';
 
 const homePage = () => htmlResponse(`<html>
   <meta charset=utf-8/>
